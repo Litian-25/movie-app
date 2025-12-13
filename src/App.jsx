@@ -4,7 +4,7 @@ import MovieList from './components/MovieList';
 //import viteLogo from '/vite.svg'
 //import './App.css'
 
-const API_KEY = 'e5d214ab';
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
