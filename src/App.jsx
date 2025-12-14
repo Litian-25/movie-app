@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MovieList from './components/MovieList';
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
@@ -9,7 +9,18 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [movieList, setMovieList] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    // ローカルストレージからお気に入り映画を,'favorites'キーとして取得
+    const saved = localStorage.getItem('favorites');
+    // データがあれば配列に変換、無ければ空配列を返す
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // お気に入りが変わったらローカルストレージに保存
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
   const [loading, setLoading] = useState(false);
 
   const handleSearch =  async (e) => {
