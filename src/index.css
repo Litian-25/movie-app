@@ -119,3 +119,60 @@ h2 {
 .movieCard button:hover {
   background-color: #ff6b6b;
 }
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .searchForm {
+    flex-direction: column;
+  }
+
+  .searchForm input {
+    width: 100%;
+  }
+
+  .searchForm button {
+    width: 100%;
+  }
+
+  .movieList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .movieCard img {
+    height: 180px;
+  }
+
+  .movieCard h3 {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .movieCard p {
+    font-size: 0.75rem;
+    padding: 0 8px 8px;
+  }
+
+  .movieCard button {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .movieCard img {
+    height: 150px;
+  }
+}
