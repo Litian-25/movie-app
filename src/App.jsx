@@ -3,7 +3,9 @@ import MovieList from './components/MovieList';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 // バックエンドAPIのURL（Express サーバー）
-const API_URL = 'http://localhost:3001/api';
+const API_URL = import.meta.env.PROD 
+  ? 'https://movie-app-qr2w.onrender.com/api'
+  : 'http://localhost:3001/api';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
