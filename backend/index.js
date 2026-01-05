@@ -11,7 +11,8 @@ app.use(express.json());
 
 // PostgreSQL接続
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
 });
 
 // お気に入り一覧取得（Read）
